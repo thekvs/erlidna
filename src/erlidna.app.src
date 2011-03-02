@@ -1,0 +1,14 @@
+{application, erlidna,
+ [
+  {description, "libidn Erlang/C library"},
+  {vsn, "2.0"},
+  {modules, [
+             erlidna
+            ]},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.
