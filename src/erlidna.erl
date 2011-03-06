@@ -19,10 +19,10 @@ init() ->
     erlang:load_nif(SoName, 0).
 
 encode(_Data) ->
-    "NIF library not loaded".
+    erlang:nif_error(not_loaded).
 
 decode(_Data) ->
-    "NIF library not loaded".
+    erlang:nif_error(not_loaded).
 
 %% ===================================================================
 %% EUnit tests
