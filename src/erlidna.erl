@@ -1,4 +1,11 @@
+%%% @author Konstantin Sorokin <kvs@sigterm.ru>
+%%% @doc Implementation of the IDNA part of GNU libidn library in Erlang NIFs.
+%%%
+%%% @copyright 2011 Konstantin V. Sorokin, All rights reserved. Open source, BSD License
+%%% @version 1.0
+%%%
 -module(erlidna).
+-version(1.0).
 -on_load(init/0).
 -export([encode/1, decode/1]).
 
@@ -6,6 +13,7 @@
 -include_lib("eunit/include/eunit.hrl").
 -endif.
 
+%% @doc Initialize idna NIF.
 init() ->
     SoName = filename:join(case code:priv_dir(?MODULE) of
                                {error, bad_name} ->
@@ -18,9 +26,21 @@ init() ->
                            end, atom_to_list(?MODULE) ++ "_nif"),
     erlang:load_nif(SoName, 0).
 
+%% @spec encode(Data) -> {ok, Encoded} | {error, Reason}
+%% where
+%%       Data = binary()
+%%       Encoded = binary()
+%%       Reason = string()
+%% @doc Encode domain name given in UTF-8 encoding into ASCII representation.
 encode(_Data) ->
     erlang:nif_error(not_loaded).
 
+%% @spec decode(Data) -> {ok, Decoded} | {error, Reason}
+%% where
+%%       Data = binary()
+%%       Decoded = binary()
+%%       Reason = string()
+%% @doc Decode domain name from ASCII representation into UTF-8 encoding.
 decode(_Data) ->
     erlang:nif_error(not_loaded).
 
