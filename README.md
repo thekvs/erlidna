@@ -1,6 +1,6 @@
 ## Description
 
-The **erlidna** library provides a simple interface to the [IDNA part of GNU libidn library](http://www.gnu.org/software/libidn/reference/libidn-idna.html) implemented as NIFs.
+The **erlidna** library provides a simple interface to the [IDNA part of GNU libidn library](http://www.gnu.org/software/libidn/reference/libidn-idna.html) implemented in NIFs.
 
 ## Building and Installing
 
