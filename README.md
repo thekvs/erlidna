@@ -4,6 +4,8 @@ The **erlidna** library provides a simple interface to the [IDNA part of GNU lib
 
 ## Building and Installing
 
+[![Build Status](https://travis-ci.org/thekvs/erlidna.svg?branch=master)](https://travis-ci.org/thekvs/erlidna)
+
 The **erlidna** app is built with [rebar](https://github.com/basho/rebar), which must be in the command `PATH`.
 
 ## API
