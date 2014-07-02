@@ -4,6 +4,12 @@
 #include <erl_nif.h>
 #include <idna.h>
 
+#if defined  __GNUC__ || defined __clang__
+#   define UNUSED __attribute__((unused))
+#else
+#  define UNUSED
+#endif
+
 ERL_NIF_TERM erlidna_encode(ErlNifEnv* env, int argc,
     const ERL_NIF_TERM argv[]);
 ERL_NIF_TERM erlidna_decode(ErlNifEnv* env, int argc,
@@ -21,7 +27,7 @@ static ErlNifFunc nif_funcs[] =
 };
 
 ERL_NIF_TERM
-erlidna_encode(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
+erlidna_encode(ErlNifEnv* env, int argc UNUSED, const ERL_NIF_TERM argv[])
 {
 	char *encoded;
 	void *data;
@@ -48,7 +54,7 @@ erlidna_encode(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
 }
 
 ERL_NIF_TERM
-erlidna_decode(ErlNifEnv* env, int argc, const ERL_NIF_TERM argv[])
+erlidna_decode(ErlNifEnv* env, int argc UNUSED, const ERL_NIF_TERM argv[])
 {
 	char *decoded;
 	void *data;
